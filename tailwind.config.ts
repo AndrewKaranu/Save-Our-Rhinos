@@ -61,7 +61,25 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'photobook-overlay': 'hsl(var(--photobook-overlay))',
+				'photobook-progress': 'hsl(var(--photobook-progress))',
+				'photobook-text': 'hsl(var(--photobook-text))',
+				'photobook-accent': 'hsl(var(--photobook-accent))'
+			},
+			backgroundImage: {
+				'gradient-cinematic': 'var(--gradient-cinematic)',
+				'gradient-overlay': 'var(--gradient-overlay)',
+				'gradient-progress': 'var(--gradient-progress)'
+			},
+			boxShadow: {
+				'cinematic': 'var(--shadow-cinematic)',
+				'glow': 'var(--shadow-glow)'
+			},
+			transitionProperty: {
+				'smooth': 'var(--transition-smooth)',
+				'parallax': 'var(--transition-parallax)',
+				'fade': 'var(--transition-fade)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,25 +88,37 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'slide-in-horizontal': {
+					from: { transform: 'translateX(100%)', opacity: '0' },
+					to: { transform: 'translateX(0)', opacity: '1' }
+				},
+				'parallax-float': {
+					'0%, 100%': { transform: 'translateY(0) translateX(0)' },
+					'50%': { transform: 'translateY(-10px) translateX(5px)' }
+				},
+				'fade-in-up': {
+					from: { opacity: '0', transform: 'translateY(30px)' },
+					to: { opacity: '1', transform: 'translateY(0)' }
+				},
+				'progress-glow': {
+					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--photobook-accent) / 0.3)' },
+					'50%': { boxShadow: '0 0 40px hsl(var(--photobook-accent) / 0.6)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'slide-in-horizontal': 'slide-in-horizontal 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+				'parallax-float': 'parallax-float 6s ease-in-out infinite',
+				'fade-in-up': 'fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+				'progress-glow': 'progress-glow 2s ease-in-out infinite'
 			}
 		}
 	},
