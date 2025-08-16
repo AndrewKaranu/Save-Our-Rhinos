@@ -1,7 +1,8 @@
-import * as pdfjsLib from 'pdfjs-dist';
+import { GlobalWorkerOptions, getDocument } from 'pdfjs-dist';
+import workerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 
 // Configure PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+GlobalWorkerOptions.workerSrc = workerSrc;
 
 export interface PhotobookPage {
   id: string;
@@ -16,7 +17,7 @@ export class PdfProcessor {
   static async convertPdfToImages(file: File): Promise<PhotobookPage[]> {
     try {
       const arrayBuffer = await file.arrayBuffer();
-      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      const pdf = await getDocument({ data: arrayBuffer }).promise;
       
       const pages: PhotobookPage[] = [];
       
@@ -40,9 +41,8 @@ export class PdfProcessor {
         // Render page to canvas
         const renderContext = {
           canvasContext: context,
-          viewport: viewport,
-          canvas: canvas
-        };
+          viewport: viewport
+        } as any;
         
         await page.render(renderContext).promise;
         
