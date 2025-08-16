@@ -14,63 +14,57 @@ export const PhotobookSlide: React.FC<PhotobookSlideProps> = ({
   index
 }) => {
   const slideRef = useRef<HTMLDivElement>(null);
-  const backgroundRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!slideRef.current || !backgroundRef.current) return;
+    if (!slideRef.current || !containerRef.current) return;
 
     if (isActive) {
-      // Parallax effect when slide becomes active
-      gsap.fromTo(backgroundRef.current, 
-        { scale: 1.1, opacity: 0.8 },
+      // Smooth entrance animation
+      gsap.fromTo(containerRef.current, 
+        { scale: 1.05, opacity: 0.8 },
         { scale: 1, opacity: 1, duration: 1.2, ease: "power2.out" }
       );
-      
-      if (contentRef.current) {
-        gsap.fromTo(contentRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, delay: 0.3, ease: "power2.out" }
-        );
-      }
     }
   }, [isActive]);
+
+  useEffect(() => {
+    if (!canvasRef.current || !page.pdfPage) return;
+
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+    
+    if (!context) return;
+
+    // Set canvas size
+    canvas.width = page.viewport.width;
+    canvas.height = page.viewport.height;
+
+    // Render PDF page to canvas
+    const renderContext = {
+      canvasContext: context,
+      viewport: page.viewport
+    } as any;
+
+    page.pdfPage.render(renderContext);
+  }, [page.pdfPage, page.viewport]);
 
   return (
     <div 
       ref={slideRef}
-      className="relative w-screen h-screen flex-shrink-0 overflow-hidden"
+      className="relative w-screen h-screen flex-shrink-0 overflow-hidden bg-background"
     >
-      {/* Background Image with Parallax */}
+      {/* PDF Canvas Container with centering */}
       <div 
-        ref={backgroundRef}
-        className="absolute inset-0 w-full h-full"
-        style={{
-          backgroundImage: `url(${page.imageUrl})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
+        ref={containerRef}
+        className="absolute inset-0 flex items-center justify-center p-8"
       >
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-overlay opacity-60" />
+        <canvas
+          ref={canvasRef}
+          className="max-w-full max-h-full object-contain shadow-cinematic rounded-lg"
+        />
       </div>
-
-      {/* Text Content Overlay */}
-      {page.textContent && (
-        <div 
-          ref={contentRef}
-          className="absolute bottom-0 left-0 right-0 p-8 md:p-16"
-        >
-          <div className="max-w-4xl">
-            <div className="bg-background/10 backdrop-blur-md rounded-xl p-6 border border-border/20">
-              <p className="text-photobook-text text-lg md:text-xl leading-relaxed font-light">
-                {page.textContent}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Page Number Badge */}
       <div className="absolute top-8 left-8 bg-background/20 backdrop-blur-sm px-3 py-1 rounded-full border border-border/30">

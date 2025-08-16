@@ -15,17 +15,17 @@ const Index = () => {
     
     try {
       toast({
-        title: "Processing PDF...",
-        description: "Converting pages to images for optimal viewing",
+        title: "Loading PDF...",
+        description: "Preparing pages for optimal viewing experience",
       });
 
-      const processedPages = await PdfProcessor.convertPdfToImages(file);
+      const processedPages = await PdfProcessor.convertPdfToPages(file);
       setPages(processedPages);
       setIsViewing(true);
       
       toast({
         title: "Success!",
-        description: `Converted ${processedPages.length} pages. Enjoy your cinematic experience!`,
+        description: `Loaded ${processedPages.length} pages. Enjoy your cinematic experience!`,
       });
     } catch (error) {
       console.error('Error processing PDF:', error);
