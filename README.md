@@ -1,73 +1,35 @@
-# Welcome to your Lovable project
+# 🦏 Save Our Rhinos - Interactive Photobook
 
-## Project info
+A powerful interactive photobook experience documenting the urgent need to protect rhinos from extinction.
 
-**URL**: https://lovable.dev/projects/9142b5b8-50ce-4b67-9c9b-afcbd289fb67
+## Purpose
 
-## How can I edit this code?
+This website serves as a digital conservation platform that combines stunning wildlife photography with a call to action. Through an immersive photobook experience, visitors can:
 
-There are several ways of editing your application.
+- **Experience** high-quality rhino photography in an interactive slideshow format
+- **Learn** about the critical state of rhino conservation efforts
+- **Connect** with the photographer's journey and mission
+- **Support** real conservation work through direct donations to Ol Pejeta Conservancy
 
-**Use Lovable**
+## The Story
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9142b5b8-50ce-4b67-9c9b-afcbd289fb67) and start prompting.
+Once abundant across Central Africa, today only two northern white rhinos remain alive - both female, both living under 24-hour armed guard in Kenya. This photobook documents their world: a powerful blend of beauty and grief, hope and urgency.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Conservation Impact
 
-**Use your preferred IDE**
+This project directly supports [Ol Pejeta Conservancy](https://donate.olpejetaconservancy.org/), the sanctuary that provided incredible support for this photography project and continues to protect these magnificent creatures.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Live Site
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Visit the experience at: **https://andrewkaranu.github.io/page-scroll-canvas/**
 
-Follow these steps:
+## Connect
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Follow the conservation journey:
+- [Instagram](https://www.instagram.com/_andrrrwww_/)
+- [LinkedIn](https://www.linkedin.com/in/andrew-karanu-998910237/)
+- [GitHub](https://github.com/AndrewKaranu)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9142b5b8-50ce-4b67-9c9b-afcbd289fb67) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+*Every view, every share, every donation brings us closer to ensuring rhinos have a future.*

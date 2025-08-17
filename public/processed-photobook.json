@@ -1,0 +1,17 @@
+{
+  "pages": [
+    {
+      "id": "page-1",
+      "pageNumber": 1,
+      "imageData": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAw",
+      "width": 800,
+      "height": 600,
+      "aspectRatio": 1.333
+    }
+  ],
+  "metadata": {
+    "title": "Save our Rhinos",
+    "totalPages": 1,
+    "description": "A powerful journey documenting the urgent need to protect these magnificent creatures"
+  }
+}

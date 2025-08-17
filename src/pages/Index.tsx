@@ -1,62 +1,45 @@
 import React, { useState } from 'react';
-import { PhotobookUpload } from '@/components/PhotobookUpload';
+import { PhotobookLanding } from '@/components/PhotobookLanding';
 import { PhotobookViewer } from '@/components/PhotobookViewer';
-import { PdfProcessor, PhotobookPage } from '@/utils/pdfProcessor';
+import { PhotobookPage, PhotobookMetadata } from '@/types/photobook';
 import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const [pages, setPages] = useState<PhotobookPage[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [metadata, setMetadata] = useState<PhotobookMetadata | null>(null);
   const [isViewing, setIsViewing] = useState(false);
   const { toast } = useToast();
 
-  const handlePdfUpload = async (file: File) => {
-    setIsLoading(true);
+  const handleViewPhotobook = (photobookPages: PhotobookPage[], photobookMetadata: PhotobookMetadata) => {
+    setPages(photobookPages);
+    setMetadata(photobookMetadata);
+    setIsViewing(true);
     
-    try {
-      toast({
-        title: "Loading PDF...",
-        description: "Preparing pages for optimal viewing experience",
-      });
-
-      const processedPages = await PdfProcessor.convertPdfToPages(file);
-      setPages(processedPages);
-      setIsViewing(true);
-      
-      toast({
-        title: "Success!",
-        description: `Loaded ${processedPages.length} pages. Enjoy your cinematic experience!`,
-      });
-    } catch (error) {
-      console.error('Error processing PDF:', error);
-      toast({
-        title: "Error",
-        description: "Failed to process PDF. Please try a different file.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    toast({
+      title: "Photobook Loaded!",
+      description: `Ready to view ${photobookPages.length} pages. Use arrow keys or swipe to navigate.`,
+    });
   };
 
-  const handleBackToUpload = () => {
+  const handleBackToHome = () => {
     setIsViewing(false);
     setPages([]);
+    setMetadata(null);
   };
 
-  if (isViewing && pages.length > 0) {
+  if (isViewing && pages.length > 0 && metadata) {
     return (
       <PhotobookViewer 
         pages={pages} 
-        onBack={handleBackToUpload}
+        metadata={metadata}
+        onBack={handleBackToHome}
       />
     );
   }
 
   return (
-    <PhotobookUpload 
-      onPdfUpload={handlePdfUpload}
-      isLoading={isLoading}
+    <PhotobookLanding 
+      onViewPhotobook={handleViewPhotobook}
     />
   );
 };
