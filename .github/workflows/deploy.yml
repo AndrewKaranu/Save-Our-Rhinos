@@ -31,3 +31,5 @@ jobs:
       with:
         github_token: ${{ secrets.PAT }} # Use a Personal Access Token secret with repo scope
         publish_dir: ./dist
+        repository_name: AndrewKaranu/Save-Our-Rhinos  # ensure correct target repo name
+        publish_branch: gh-pages  # deploy to gh-pages branch
