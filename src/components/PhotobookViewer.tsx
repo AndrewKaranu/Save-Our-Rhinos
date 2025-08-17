@@ -5,7 +5,6 @@ import { PhotobookPage, PhotobookMetadata } from '@/types/photobook';
 import { ChevronLeft, ChevronRight, Play, Pause, Home, ZoomIn, ZoomOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Card } from '@/components/ui/card';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -313,26 +312,7 @@ export const PhotobookViewer: React.FC<PhotobookViewerProps> = ({
         {currentPage + 1} / {pages.length}
       </div>
 
-      {/* Page Thumbnails */}
-      <div className="fixed left-4 top-1/2 transform -translate-y-1/2 space-y-2 z-20 max-h-96 overflow-y-auto">
-        {pages.map((page, index) => (
-          <Card
-            key={page.id}
-            className={`w-16 h-20 cursor-pointer transition-all duration-200 ${
-              index === currentPage 
-                ? 'ring-2 ring-white bg-white/20' 
-                : 'bg-black/30 hover:bg-white/10'
-            }`}
-            onClick={() => scrollToPage(index)}
-          >
-            <img
-              src={page.imageData}
-              alt={`Page ${page.pageNumber}`}
-              className="w-full h-full object-cover rounded"
-            />
-          </Card>
-        ))}
-      </div>
+  {/* Page Thumbnails removed */}
 
       {/* Instructions */}
       <div className="fixed bottom-4 left-4 text-white/60 text-sm z-20">
