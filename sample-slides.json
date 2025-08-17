@@ -1,0 +1,47 @@
+{
+  "config": {
+    "title": "My Custom Slideshow",
+    "description": "A sample slideshow configuration",
+    "autoplayDuration": 5000,
+    "showProgress": true,
+    "showControls": true,
+    "theme": "dark"
+  },
+  "slides": [
+    {
+      "id": "slide-1",
+      "title": "Welcome",
+      "content": "Welcome to my custom slideshow!",
+      "type": "text",
+      "backgroundColor": "bg-gradient-to-br from-blue-600 to-purple-700",
+      "textColor": "text-white",
+      "duration": 4000
+    },
+    {
+      "id": "slide-2",
+      "title": "Image Example",
+      "content": "/placeholder.svg",
+      "type": "image",
+      "backgroundColor": "bg-gray-900",
+      "duration": 6000
+    },
+    {
+      "id": "slide-3",
+      "title": "HTML Content",
+      "content": "<div class='text-center'><h2 class='text-4xl font-bold mb-4'>Rich HTML Content</h2><p class='text-xl'>You can include any HTML content here!</p><ul class='mt-4 text-left'><li>• Bullet points</li><li>• <strong>Bold text</strong></li><li>• <em>Italic text</em></li></ul></div>",
+      "type": "html",
+      "backgroundColor": "bg-gradient-to-br from-green-500 to-teal-600",
+      "textColor": "text-white",
+      "duration": 7000
+    },
+    {
+      "id": "slide-4",
+      "title": "Thank You",
+      "content": "Thanks for viewing my slideshow!",
+      "type": "text",
+      "backgroundColor": "bg-gradient-to-br from-purple-600 to-pink-700",
+      "textColor": "text-white",
+      "duration": 5000
+    }
+  ]
+}
