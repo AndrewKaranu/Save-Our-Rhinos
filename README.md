@@ -21,7 +21,7 @@ This project directly supports [Ol Pejeta Conservancy](https://donate.olpejetaco
 
 ## Live Site
 
-Visit the experience at: **https://andrewkaranu.github.io/page-scroll-canvas/**
+Visit the experience at: **https://andrewkaranu.github.io/Save-Our-Rhinos/**
 
 ## Connect
 

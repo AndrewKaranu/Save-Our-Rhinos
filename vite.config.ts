@@ -5,7 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: process.env.NODE_ENV === 'production' ? '/Save-Our-Rhinos/' : '/',
+  // Use Vite's mode to set base correctly for GitHub Pages
+  // development => "/" (local dev), anything else (build/preview) => "/Save-Our-Rhinos/"
+  base: mode === 'development' ? '/' : '/Save-Our-Rhinos/',
   server: {
     host: "::",
     port: 8080,
