@@ -252,14 +252,14 @@ export const PhotobookViewer: React.FC<PhotobookViewerProps> = ({
       </div>
 
       {/* Controls */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 z-20">
+  <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 sm:space-x-4 z-20">
         {/* Navigation */}
         <Button
           variant="outline"
           size="icon"
           onClick={prevPage}
           disabled={currentPage === 0}
-          className="bg-black/50 border-white/20 text-white hover:bg-white/20 disabled:opacity-30"
+          className="bg-black/50 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 h-9 w-9 sm:h-10 sm:w-10"
         >
           <ChevronLeft className="h-4 w-4" />
         </Button>
@@ -268,7 +268,7 @@ export const PhotobookViewer: React.FC<PhotobookViewerProps> = ({
           variant="outline"
           size="icon"
           onClick={toggleAutoplay}
-          className="bg-black/50 border-white/20 text-white hover:bg-white/20"
+          className="bg-black/50 border-white/20 text-white hover:bg-white/20 h-9 w-9 sm:h-10 sm:w-10"
         >
           {isAutoplay ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
         </Button>
@@ -278,7 +278,7 @@ export const PhotobookViewer: React.FC<PhotobookViewerProps> = ({
           size="icon"
           onClick={nextPage}
           disabled={currentPage === pages.length - 1}
-          className="bg-black/50 border-white/20 text-white hover:bg-white/20 disabled:opacity-30"
+          className="bg-black/50 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 h-9 w-9 sm:h-10 sm:w-10"
         >
           <ChevronRight className="h-4 w-4" />
         </Button>
@@ -290,7 +290,7 @@ export const PhotobookViewer: React.FC<PhotobookViewerProps> = ({
             size="icon"
             onClick={handleZoomOut}
             disabled={zoom <= 0.5}
-            className="bg-black/50 border-white/20 text-white hover:bg-white/20 disabled:opacity-30"
+            className="bg-black/50 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 h-9 w-9 sm:h-10 sm:w-10"
           >
             <ZoomOut className="h-4 w-4" />
           </Button>
@@ -300,7 +300,7 @@ export const PhotobookViewer: React.FC<PhotobookViewerProps> = ({
             size="icon"
             onClick={handleZoomIn}
             disabled={zoom >= 3}
-            className="bg-black/50 border-white/20 text-white hover:bg-white/20 disabled:opacity-30"
+            className="bg-black/50 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 h-9 w-9 sm:h-10 sm:w-10"
           >
             <ZoomIn className="h-4 w-4" />
           </Button>
@@ -308,16 +308,22 @@ export const PhotobookViewer: React.FC<PhotobookViewerProps> = ({
       </div>
 
       {/* Page Counter */}
-      <div className="fixed bottom-8 right-8 bg-black/50 text-white px-4 py-2 rounded-lg z-20">
+  <div className="fixed bottom-20 right-3 sm:bottom-8 sm:right-8 bg-black/50 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg z-20 text-xs sm:text-sm">
         {currentPage + 1} / {pages.length}
       </div>
 
   {/* Page Thumbnails removed */}
 
-      {/* Instructions */}
-      <div className="fixed bottom-4 left-4 text-white/60 text-sm z-20">
-        <p>← → Navigate • Space: Next • P: Autoplay</p>
-        <p>Click image to zoom • +/- keys to zoom</p>
+      {/* Instructions (responsive) */}
+      <div
+        className="fixed left-3 bottom-20 sm:bottom-6 z-20 max-w-[92vw] text-white/70 hidden sm:block"
+      >
+        <p className="text-xs md:text-sm leading-tight whitespace-normal break-words">
+          ← → Navigate • Space: Next • P: Autoplay
+        </p>
+        <p className="text-xs md:text-sm leading-tight whitespace-normal break-words">
+          Click image to zoom • +/- keys to zoom
+        </p>
       </div>
     </div>
   );

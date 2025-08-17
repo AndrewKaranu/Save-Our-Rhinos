@@ -137,7 +137,7 @@ export const PhotobookLanding: React.FC<PhotobookLandingProps> = ({
                   About Me
                 </h3>
                 <p className="text-white/90 leading-relaxed text-sm">
-                  I'm a passionate wildlife photographer and conservationist dedicated to raising awareness about endangered species. Through my lens, I capture the beauty and vulnerability of these magnificent creatures, hoping to inspire action and change.
+                  I’m a hobbyist photographer with an endless curiosity and a habit of pointing my camera at anything that makes me feel something, not just to show what I saw, but to share what I felt.  I created this photobook when I was just 15 years old as part of my IB MYP Personal Project, believing even then that my little experiment of a project could spread awareness for my besties Najin and Fatu!
                 </p>
               </div>
 
