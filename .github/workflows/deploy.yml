@@ -29,5 +29,5 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.PAT }} # Use a Personal Access Token secret with repo scope instead of the default GITHUB_TOKEN
+        personal_token: ${{ secrets.PAT }} # Use a Personal Access Token secret with repo scope
         publish_dir: ./dist
