@@ -190,8 +190,8 @@ export const PhotobookViewer: React.FC<PhotobookViewerProps> = ({
       <div className="fixed top-0 left-0 right-0 bg-gradient-to-b from-black/80 to-transparent z-20 p-4">
         <div className="flex items-center justify-between text-white">
           <div>
-            <h1 className="text-2xl font-bold">{metadata.title}</h1>
-            <p className="text-sm opacity-75">{metadata.description}</p>
+            <h1 className="text-2xl font-bold">Save Our Rhinos</h1>
+            <p className="text-sm opacity-75">A photobook by Andrew Kamami</p>
           </div>
           {onBack && (
             <Button
