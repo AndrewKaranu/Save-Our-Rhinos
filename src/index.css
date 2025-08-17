@@ -99,6 +99,8 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+  @apply bg-background text-foreground;
+  /* Normalize perceived scale across environments */
+  font-size: clamp(14px, 1.5vw, 16px);
   }
 }

@@ -220,7 +220,12 @@ export const PhotobookViewer: React.FC<PhotobookViewerProps> = ({
           >
             <div 
               className="relative max-w-full max-h-full transition-transform duration-300 cursor-pointer"
-              style={{ transform: `scale(${zoom})` }}
+              style={{ 
+                transform: `scale(${zoom})`,
+                // Keep content comfortably within viewport accounting for header/controls overlays
+                maxWidth: 'min(95vw, 1600px)',
+                maxHeight: 'calc(100vh - 160px)'
+              }}
               onClick={isZoomed ? resetZoom : handleZoomIn}
             >
               <img
