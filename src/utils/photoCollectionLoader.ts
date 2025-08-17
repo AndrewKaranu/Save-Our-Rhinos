@@ -33,10 +33,11 @@ export class PhotoCollectionLoader {
         description: 'A beautiful collection of memories captured in time'
       };
 
+      const base = import.meta.env.BASE_URL || '/';
       const pages: PhotobookPage[] = photoFiles.map((filename, index) => ({
         id: `photo-${index + 1}`,
         pageNumber: index + 1,
-        imageData: `/Photos/${filename}`,
+        imageData: `${base}Photos/${filename}`,
         width: 1920, // Default dimensions, will be adjusted by CSS
         height: 1080,
         aspectRatio: 16 / 9 // Will be overridden by actual image
@@ -54,16 +55,18 @@ export class PhotoCollectionLoader {
    * Get preview photos for homepage
    */
   static getPreviewPhotos(count: number = 6): string[] {
+    const base = import.meta.env.BASE_URL || '/';
     return photoFiles
       .slice(0, count)
-      .map(filename => `/Photos/${filename}`);
+      .map(filename => `${base}Photos/${filename}`);
   }
 
   /**
    * Get random hero photo for homepage
    */
   static getHeroPhoto(): string {
-    const randomIndex = Math.floor(Math.random() * photoFiles.length);
-    return `/Photos/${photoFiles[randomIndex]}`;
+  const base = import.meta.env.BASE_URL || '/';
+  const randomIndex = Math.floor(Math.random() * photoFiles.length);
+  return `${base}Photos/${photoFiles[randomIndex]}`;
   }
 }

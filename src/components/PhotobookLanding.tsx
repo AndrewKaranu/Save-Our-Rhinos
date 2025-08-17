@@ -17,18 +17,19 @@ export const PhotobookLanding: React.FC<PhotobookLandingProps> = ({
   const { toast } = useToast();
 
   // Your actual photos for the cycling background
+  const base = import.meta.env.BASE_URL || '/';
   const backgroundPhotos = [
-    '/Photos/20190728-IMG_7212.jpg',
-    '/Photos/20190728-IMG_7220.jpg',
-    '/Photos/20190728-IMG_7235.jpg',
-    '/Photos/20190728-IMG_7237-2.jpg',
-    '/Photos/20190728-IMG_7243.jpg',
-    '/Photos/20190729-IMG_7647.jpg',
-    '/Photos/20190729-IMG_8251-2.jpg',
-    '/Photos/20190729-IMG_8267.jpg',
-    '/Photos/20190729-IMG_8284-2.jpg',
-    '/Photos/20190729-IMG_8285.jpg',
-    '/Photos/IMG_20190908_192254.jpg'
+    `${base}Photos/20190728-IMG_7212.jpg`,
+    `${base}Photos/20190728-IMG_7220.jpg`,
+    `${base}Photos/20190728-IMG_7235.jpg`,
+    `${base}Photos/20190728-IMG_7237-2.jpg`,
+    `${base}Photos/20190728-IMG_7243.jpg`,
+    `${base}Photos/20190729-IMG_7647.jpg`,
+    `${base}Photos/20190729-IMG_8251-2.jpg`,
+    `${base}Photos/20190729-IMG_8267.jpg`,
+    `${base}Photos/20190729-IMG_8284-2.jpg`,
+    `${base}Photos/20190729-IMG_8285.jpg`,
+    `${base}Photos/IMG_20190908_192254.jpg`
   ];
 
   // Cycle through photos every 5 seconds

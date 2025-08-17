@@ -4,8 +4,9 @@ import { samplePhotobookData } from '@/data/samplePhotobook';
 
 // Set up PDF.js worker with local fallback
 try {
-  // First try to use local worker file
-  pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
+  // First try to use local worker file under the correct base path
+  const base = (import.meta as any).env?.BASE_URL || '/';
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `${base}pdf.worker.min.js`;
 } catch (error) {
   console.warn('Failed to set local worker, falling back to CDN');
   // Fallback to CDN with HTTPS
@@ -120,8 +121,9 @@ export class PhotobookProcessor {
       console.log('Loading embedded photobook...');
       
       // Try to load your photobook PDF from the public folder
-      console.log('Fetching PDF from /Photo book.pdf...');
-      const response = await fetch('/Photo book.pdf');
+  const base = import.meta.env.BASE_URL || '/';
+  console.log('Fetching PDF from', `${base}Photo book.pdf`);
+  const response = await fetch(`${base}Photo book.pdf`);
       
       if (!response.ok) {
         console.warn(`PDF fetch failed with status: ${response.status} ${response.statusText}`);

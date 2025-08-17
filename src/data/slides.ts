@@ -63,7 +63,7 @@ export const sampleSlides: Slide[] = [
   {
     id: '4',
     title: 'Demo Image',
-    content: '/placeholder.svg',
+  content: (import.meta as any).env?.BASE_URL ? `${(import.meta as any).env.BASE_URL}placeholder.svg` : '/placeholder.svg',
     type: 'image',
     backgroundColor: 'bg-gray-900',
     duration: 4000

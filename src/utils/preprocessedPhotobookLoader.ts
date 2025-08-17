@@ -12,7 +12,8 @@ export class PreprocessedPhotobookLoader {
       console.log('🚀 Checking for pre-processed photobook data...');
       
       // Try to load pre-processed data first
-      const response = await fetch('/processed-photobook.json');
+  const base = import.meta.env.BASE_URL || '/';
+  const response = await fetch(`${base}processed-photobook.json`);
       
       if (response.ok) {
         console.log('✅ Found pre-processed data, loading instantly...');
